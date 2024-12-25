@@ -1,0 +1,17 @@
+version: 0.0
+
+os: ubuntu
+
+hooks:
+  BeforeInstall:
+    - location: scripts/pull-image.sh
+      timeout: 300
+      runas: root
+  ApplicationStart:
+    - location: scripts/start-container.sh
+      timeout: 300
+      runas: root
+  ApplicationStop:
+    - location: scripts/stop_container.sh
+      timeout: 300
+      runas: root
